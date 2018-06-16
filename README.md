@@ -139,3 +139,12 @@ output should be
 roscpp
 visualization_msgs
 ```
+### design your environment
+
+* Open a terminal and launch Gazebo
+* Click Edit and launch `Building Editor`
+* Design a simple environment
+* Apply textures or color
+* Save the building editor environment and go back to Gazebo
+* Save the Gazebo environment to the `world` directory under your `~/catkin_ws/src`
+
