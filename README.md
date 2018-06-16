@@ -87,5 +87,6 @@ $ sudo rosdep -i install turtlebot_rviz_launchers
 
 ```bash
 $ cd ~/catkin_ws
-$ cat
+$ catkin_make
+```
 
