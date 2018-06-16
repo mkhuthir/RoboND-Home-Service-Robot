@@ -2,6 +2,11 @@
 Home Service Robot using ROS/Gazebo Simulation
 
 
+```bash
+$ sudo apt-get update
+$ sudo apt-get install ros-kinetic-navigation
+```
+
 ### to add ROS packages
 
 ```bash
