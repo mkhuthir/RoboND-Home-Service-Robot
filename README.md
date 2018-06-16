@@ -3,6 +3,10 @@ Home Service Robot using ROS/Gazebo Simulation
 
 
 ```bash
+$ cd ~
+$ git clone https://github.com/mkhuthir/RoboND-Home-Service-Robot.git catkin_ws
+$ git submodule init
+$ git submodule update
 $ sudo apt-get update
 $ sudo apt-get install ros-kinetic-navigation
 ```
