@@ -56,7 +56,7 @@ $ sudo apt-get install xterm
 $ cd ~/catkin_ws
 $ catkin_make
 ```
-#### source the devel folder
+#### source the development folder
 
 ```bash
 $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
@@ -114,11 +114,10 @@ $ sudo rosdep -i install turtlebot_rviz_launchers
 $ cd ~/catkin_ws
 $ catkin_make
 ```
-#### source the devel folder
+#### source the development folder
 
 ```bash
 $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 $ source ~/.bashrc
 ```
-
 
