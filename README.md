@@ -24,10 +24,10 @@ $ sudo apt-get install ros-kinetic-navigation
 install ROS packages dependancies
 
 ```bash
-$ rosdep -i install gmapping
-$ rosdep -i install turtlebot
-$ rosdep -i install turtlebot_teleop
-$ rosdep -i install turtlebot_rviz_launchers
+$ sudo rosdep -i install gmapping
+$ sudo rosdep -i install turtlebot
+$ sudo rosdep -i install turtlebot_teleop
+$ sudo rosdep -i install turtlebot_rviz_launchers
 ```
 Build catkin workspace
 
