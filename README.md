@@ -44,13 +44,24 @@ $ sudo rosdep -i install turtlebot
 $ sudo rosdep -i install turtlebot_teleop
 $ sudo rosdep -i install turtlebot_rviz_launchers
 ```
+### install xterm if you dont have it
+
+```bash
+$ sudo apt-get install xterm
+```
+
 #### Build catkin workspace
 
 ```bash
 $ cd ~/catkin_ws
 $ catkin_make
 ```
+#### source the devel folder
 
+```bash
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+$ source ~/.bashrc
+```
 
 
 
@@ -63,7 +74,7 @@ $ catkin_make
 #### create catkin workspace
 
 ```bash
-$ mkdir ~/catkin_ws/src -p
+$ mkdir -p ~/catkin_ws/src
 ```
 #### make your empty workspace to ensure that ROS installation is fine
 
@@ -103,4 +114,11 @@ $ sudo rosdep -i install turtlebot_rviz_launchers
 $ cd ~/catkin_ws
 $ catkin_make
 ```
+#### source the devel folder
+
+```bash
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
 
