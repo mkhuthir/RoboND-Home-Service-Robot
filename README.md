@@ -1,4 +1,5 @@
 # RoboND-Home-Service-Robot
+
 Home Service Robot using ROS/Gazebo Simulation
 
 ## How to clone workspcae from this repository
@@ -9,7 +10,7 @@ Home Service Robot using ROS/Gazebo Simulation
 $ cd ~
 $ git clone https://github.com/mkhuthir/RoboND-Home-Service-Robot.git catkin_ws
 ```
-Initilize all registered git submodules and update them.
+#### Initilize all registered git submodules and update them.
 
 ```bash
 $ git submodule init
