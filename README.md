@@ -1,39 +1,50 @@
 # RoboND-Home-Service-Robot
 Home Service Robot using ROS/Gazebo Simulation
 
+## How to clone workspcae from this repository
 
+clone this repository to `~/catkin_ws` folder 
 
 ```bash
 $ cd ~
 $ git clone https://github.com/mkhuthir/RoboND-Home-Service-Robot.git catkin_ws
 ```
+Initilize all registered git submodules and update them.
 
 ```bash
 $ git submodule init
 $ git submodule update
 ```
+Install ROS Navigation system
 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install ros-kinetic-navigation
 ```
+install ROS packages dependancies
 
-```bash
-$ catkin_make
-```
-
-### To install dependancies
 ```bash
 $ rosdep -i install gmapping
 $ rosdep -i install turtlebot
 $ rosdep -i install turtlebot_teleop
 $ rosdep -i install turtlebot_rviz_launchers
 ```
+Build catkin workspace
+
+```bash
+$ catkin_make
+```
 
 
 
 
-### to add ROS packages
+
+
+## How to create from scratch
+
+Ensure that ROS kinetic full desktop is already installed.
+
+create catkin workspace
 
 ```bash
 $ cd ~/catkin_ws/src
