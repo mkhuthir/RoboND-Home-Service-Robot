@@ -121,3 +121,21 @@ $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
+### create new packages
+
+```bash
+$ catkin_create_pkg pick_objects move_base_msgs actionlib roscpp
+$ catkin_create_pkg add_markers roscpp visualization_msgs
+```
+
+to reconfirm dependacies you can use the following command:
+
+```bash
+$ rospack depends1 add_markers
+```
+output should be
+
+```text
+roscpp
+visualization_msgs
+```
