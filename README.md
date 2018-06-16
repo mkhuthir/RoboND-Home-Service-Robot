@@ -24,7 +24,7 @@ You will be using the following ROS packages:
 
 * **turtlebot_gazebo**: With the `turtlebot_world.launch` you can deploy a turtlebot in a gazebo environment by linking the world file to it.
 
-packages are already included in git repository as submodules, you will need to initolize it and update it.
+packages are already included in git repository as submodules, you will need to initialize it and update it.
 
 ```bash
 $ git submodule init
