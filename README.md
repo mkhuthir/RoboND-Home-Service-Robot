@@ -6,7 +6,7 @@ Home Service Robot using ROS/Gazebo Simulation
 ```bash
 $ cd ~
 $ git clone https://github.com/mkhuthir/RoboND-Home-Service-Robot.git catkin_ws
-```bash
+```
 
 ```bash
 $ git submodule init
