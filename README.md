@@ -47,6 +47,26 @@ Ensure that ROS kinetic full desktop is already installed.
 create catkin workspace
 
 ```bash
+$ mkdir ~/catkin_ws/src -p
+```
+make your empty workspace to ensure that ROS installation is fine
+
+```bash
+$ cd ~/catkin_ws
+$ catkin_make
+```
+create new git repository and follow instructions on github.com to link your `~/catkin_ws` to the new repository. add `ROS` **.gitignore** to avoid uploading binary files that are not required.
+
+```bash
+$ cd ~/catkin_ws
+$ git init
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/<your newly created repository name>.git
+$ git push -u origin master
+```
+add required ROS packages as git submodules
+
+```bash
 $ cd ~/catkin_ws/src
 $ git submodule add https://github.com/ros-perception/slam_gmapping.git
 $ git submodule add https://github.com/turtlebot/turtlebot.git
