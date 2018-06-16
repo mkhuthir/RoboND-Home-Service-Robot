@@ -33,6 +33,7 @@ $ sudo rosdep -i install turtlebot_rviz_launchers
 #### Build catkin workspace
 
 ```bash
+$ cd ~/catkin_ws
 $ catkin_make
 ```
 
@@ -82,4 +83,9 @@ $ sudo rosdep -i install turtlebot
 $ sudo rosdep -i install turtlebot_teleop
 $ sudo rosdep -i install turtlebot_rviz_launchers
 ```
+#### Build catkin workspace
+
+```bash
+$ cd ~/catkin_ws
+$ cat
 
