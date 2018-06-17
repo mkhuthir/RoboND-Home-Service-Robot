@@ -13,4 +13,4 @@ xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 5
 
 # launch wall_follower
-xterm -e "rosrun wall_follower wall_follower"
+xterm -e "rosrun wall_follower node"

@@ -184,10 +184,10 @@ int main(int argc, char** argv)
     ros::NodeHandle n;
 
     // Inform ROS master that we will be publishing a message of type geometry_msgs::Twist on the robot actuation topic with a publishing queue size of 100
-    motor_command_publisher = n.advertise<geometry_msgs::Twist>("/robotactuate", 100);
+    motor_command_publisher = n.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/teleop", 100);
 
     // Subscribe to the /scan topic and call the laser_callback function
-    laser_subscriber = n.subscribe("/laserscan", 1000, laser_callback);
+    laser_subscriber = n.subscribe("/scan", 1000, laser_callback);
 
     // Enter an infinite loop where the laser_callback function will be called when new laser messages arrive
     ros::Duration time_between_ros_wakeups(0.001);
