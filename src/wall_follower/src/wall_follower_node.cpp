@@ -178,7 +178,7 @@ void laser_callback(const sensor_msgs::LaserScan::ConstPtr& scan_msg)
 int main(int argc, char** argv)
 {
     // Initialize a ROS node
-    ros::init(argc, argv, "node");
+    ros::init(argc, argv, "wall_follower");
 
     // Create a ROS NodeHandle object
     ros::NodeHandle n;
