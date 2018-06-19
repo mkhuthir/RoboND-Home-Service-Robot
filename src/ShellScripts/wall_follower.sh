@@ -5,7 +5,8 @@ xterm -e "roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=$HOME/ca
 sleep 5
 
 # Run slam_gmapping to perfrom SLAM
-xterm -e "rosrun gmapping slam_gmapping" &
+# xterm -e "rosrun gmapping slam_gmapping" & # use this for default gmapping parameters
+xterm -e "roslaunch wall_follower slam_gmapping.launch" &
 sleep 5
 
 # view_navigation to observe the map in rviz
