@@ -36,6 +36,12 @@ $ git submodule update
 $ sudo apt-get update
 $ sudo apt-get install ros-kinetic-navigation
 ```
+
+#### Install ROS Turtlebot if not installed
+
+```bash
+$ sudo apt-get install ros-kinetic-turtlebot
+```
 #### install ROS packages dependancies
 
 ```bash
@@ -63,6 +69,11 @@ $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
+## How to use this repository
+
+#### Testing SLAM
+#### Testing Navigation
+#### Saving SLAM Map
 
 
 
