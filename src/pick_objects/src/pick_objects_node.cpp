@@ -17,28 +17,54 @@ int main(int argc, char** argv){
     ROS_INFO("Waiting for the move_base action server to come up");
   }
 
-  move_base_msgs::MoveBaseGoal goal;
+  move_base_msgs::MoveBaseGoal goal_pick_up;
+  move_base_msgs::MoveBaseGoal goal_drop_off;
 
   // set up the frame parameters
-  goal.target_pose.header.frame_id = "map";
-  goal.target_pose.header.stamp = ros::Time::now();
+  goal_pick_up.target_pose.header.frame_id = "map";
+  goal_pick_up.target_pose.header.stamp = ros::Time::now();
+  goal_drop_off.target_pose.header.frame_id = "map";
+  goal_drop_off.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = 1.0;
-  goal.target_pose.pose.orientation.w = 1.0;
+  goal_pick_up.target_pose.pose.position.x = 1.0;
+  goal_pick_up.target_pose.pose.orientation.w = 1.0;
+  goal_drop_off.target_pose.pose.position.x = 2.0;
+  goal_drop_off.target_pose.pose.orientation.w = 1.0;
 
-   // Send the goal position and orientation for the robot to reach
-  ROS_INFO("Sending goal");
-  ac.sendGoal(goal);
+  // Send Pick Up Goal
+  ROS_INFO("Sending Pick Up Goal");
+  ac.sendGoal(goal_pick_up);
 
   // Wait an infinite time for the results
   ac.waitForResult();
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, the base moved 1 meter forward");
+    ROS_INFO("Reached Pick Up Goal");
+  else{
+    ROS_INFO("failed to reach Pick Up Goal");
+    return 0;
+  }
+
+  // Wait 5 Sec
+  ros::Duration(5.0).sleep();
+
+  // Send Drop Off Goal
+  ROS_INFO("Sending Drop Off Goal");
+  ac.sendGoal(goal_drop_off);
+
+  // Wait an infinite time for the results
+  ac.waitForResult();
+
+  // Check if the robot reached its goal
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+    ROS_INFO("Reached Drop Off Goal");
   else
-    ROS_INFO("The base failed to move forward 1 meter for some reason");
+    ROS_INFO("Failed to reach Drop Off Goal");
+  
+
+
 
   return 0;
 }
