@@ -9,7 +9,7 @@ xterm -e "rosrun gmapping slam_gmapping" &
 sleep 5
 
 # view_navigation to observe the map in rviz
-xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+xterm -e "roslaunch wall_follower view_navigation.launch" &
 sleep 5
 
 # keyboard_teleop to manually control the robot with keyboard commands

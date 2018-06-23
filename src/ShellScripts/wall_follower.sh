@@ -10,7 +10,7 @@ xterm -e "roslaunch wall_follower slam_gmapping.launch" &
 sleep 5
 
 # view_navigation to observe the map in rviz
-xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+xterm -e "roslaunch wall_follower view_navigation.launch" &
 sleep 5
 
 # launch wall_follower
