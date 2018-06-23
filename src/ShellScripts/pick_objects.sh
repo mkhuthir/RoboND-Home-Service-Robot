@@ -13,4 +13,4 @@ xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 5
 
 # Deploy pick_objects node
-xterm -e "rosrun pick_objects node"
+xterm -e "rosrun pick_objects pick_objects_node"

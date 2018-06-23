@@ -10,4 +10,3 @@ sleep 5
 
 # view_navigation to observe the map in rviz
 xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" 
-sleep 5
