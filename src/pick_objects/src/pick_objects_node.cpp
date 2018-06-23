@@ -23,13 +23,17 @@ int main(int argc, char** argv){
   // set up the frame parameters
   goal_pick_up.target_pose.header.frame_id = "map";
   goal_pick_up.target_pose.header.stamp = ros::Time::now();
+
   goal_drop_off.target_pose.header.frame_id = "map";
   goal_drop_off.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
   goal_pick_up.target_pose.pose.position.x = 1.0;
+  goal_pick_up.target_pose.pose.position.y = 0.0;
   goal_pick_up.target_pose.pose.orientation.w = 1.0;
-  goal_drop_off.target_pose.pose.position.x = 2.0;
+
+  goal_drop_off.target_pose.pose.position.x = 8.0;
+  goal_drop_off.target_pose.pose.position.y = 8.0;
   goal_drop_off.target_pose.pose.orientation.w = 1.0;
 
   // Send Pick Up Goal
