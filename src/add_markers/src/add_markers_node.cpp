@@ -60,34 +60,65 @@ int main( int argc, char** argv )
       ROS_WARN_ONCE("Please create a subscriber to the marker");
       sleep(1);
     }
+  ROS_INFO("Connected to Marker Subscriber");
 
   // Set the marker action.  Options are ADD, DELETE, or DELETEALL.
   marker.action = visualization_msgs::Marker::ADD;
   // Publish the marker
   marker_pub.publish(marker);
   ROS_INFO("Published marker at pick-up point");
-  // Sleep for 5 sec
-  ros::Duration(5.0).sleep();
+  
 
-  // Set the marker action to DELETE
-  marker.action = visualization_msgs::Marker::DELETE;
-  // Publish the marker
-  marker_pub.publish(marker);
-  ROS_INFO("Removed marker from pick-up point");
-  // Sleep for 5 sec
-  ros::Duration(5.0).sleep();
+  // check robot_position using parameter server
+  std::string robot_position;
+  ros::Rate r(1);
 
-  // Set the drop-off pose of the marker.
-  // This is relative to the frame/time specified above
-  marker.pose.position.x = 8;
-  marker.pose.position.y = 8;
-  marker.pose.position.z = 0;
+  while (ros::ok())
+  {
+    if (ros::param::get("/robot_position", robot_position)){
+      ROS_INFO("Robot Position %s", robot_position.c_str());
 
-  // Set the marker action to ADD.
-  marker.action = visualization_msgs::Marker::ADD;
-  // Publish the marker
-  marker_pub.publish(marker);
-  ROS_INFO("Published marker at drop_off point");
-  // Sleep for 5 sec
-  ros::Duration(5.0).sleep();
+      if (robot_position=="Picked_Up"){
+
+          // Set the marker action to DELETE
+          marker.action = visualization_msgs::Marker::DELETE;
+          // Publish the marker
+          marker_pub.publish(marker);
+          ROS_INFO("Removed marker from pick-up point");
+
+          // Sleep for 5 sec
+          ros::Duration(5.0).sleep();
+      }
+
+      if (robot_position=="Dropped_Off"){
+
+          // Set the drop-off pose of the marker.
+          // This is relative to the frame/time specified above
+          marker.pose.position.x = 8;
+          marker.pose.position.y = 8;
+          marker.pose.position.z = 0;
+
+          // Set the marker action to ADD.
+          marker.action = visualization_msgs::Marker::ADD;
+          // Publish the marker
+          marker_pub.publish(marker);
+          ROS_INFO("Published marker at drop_off point");
+          // Sleep for 5 sec
+          ros::Duration(5.0).sleep();
+
+      }
+
+      
+    }
+    
+    r.sleep();
+  }
+   
+
+
+
+
+
+
+
 }

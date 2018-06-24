@@ -12,5 +12,5 @@ sleep 5
 xterm -e "roslaunch wall_follower view_navigation.launch" &
 sleep 5
 
-# Deploy pick_objects node
+# Deploy add_markers node
 xterm -e "rosrun add_markers add_markers_node"

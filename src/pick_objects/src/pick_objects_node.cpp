@@ -12,6 +12,9 @@ int main(int argc, char** argv){
   //tell the action client that we want to spin a thread by default
   MoveBaseClient ac("move_base", true);
 
+  // Update Robot Status using paramter server
+  ros::param::set("/robot_position", "Start_Point");
+
   // Wait 5 sec for move_base action server to come up
   while(!ac.waitForServer(ros::Duration(5.0))){
     ROS_INFO("Waiting for the move_base action server to come up");
@@ -39,15 +42,23 @@ int main(int argc, char** argv){
   // Send Pick Up Goal
   ROS_INFO("Sending Pick Up Goal");
   ac.sendGoal(goal_pick_up);
+  
+  // Update Robot Status using paramter server
+  ros::param::set("/robot_position", "Move_To_Pick");
 
   // Wait an infinite time for the results
   ac.waitForResult();
 
   // Check if the robot reached its goal
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
     ROS_INFO("Reached Pick Up Goal");
+    // Update Robot Status using paramter server
+    ros::param::set("/robot_position", "Picked_Up");
+  }
   else{
     ROS_INFO("failed to reach Pick Up Goal");
+    // Update Robot Status using paramter server
+    ros::param::set("/robot_position", "Faild_Pick");
     return 0;
   }
 
@@ -57,15 +68,23 @@ int main(int argc, char** argv){
   // Send Drop Off Goal
   ROS_INFO("Sending Drop Off Goal");
   ac.sendGoal(goal_drop_off);
+  // Update Robot Status using paramter server
+  ros::param::set("/robot_position", "Move_To_Drop");
 
   // Wait an infinite time for the results
   ac.waitForResult();
 
   // Check if the robot reached its goal
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
     ROS_INFO("Reached Drop Off Goal");
-  else
+    // Update Robot Status using paramter server
+    ros::param::set("/robot_position", "Dropped_Off");
+  }
+  else{
     ROS_INFO("Failed to reach Drop Off Goal");
+    // Update Robot Status using paramter server
+    ros::param::set("/robot_position", "Failed_Drop");
+  }
   
 
 
