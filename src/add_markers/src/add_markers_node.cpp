@@ -23,7 +23,7 @@ int main( int argc, char** argv )
   marker.header.frame_id = "map";
   marker.header.stamp = ros::Time::now();
 
-  // Set the pose of the marker.
+  // Set the pickup pose of the marker.
   // This is relative to the frame/time specified above
   marker.pose.position.x = 4;
   marker.pose.position.y = 0;
@@ -48,14 +48,8 @@ int main( int argc, char** argv )
 
   marker.lifetime = ros::Duration();
 
-  while (ros::ok())
-  {
-
-    // Set the marker action.  Options are ADD, DELETE, or DELETEALL.
-    marker.action = visualization_msgs::Marker::ADD;
-
-    // Publish the marker
-    while (marker_pub.getNumSubscribers() < 1)
+  // Check for subscribers
+  while (marker_pub.getNumSubscribers() < 1)
     {
       if (!ros::ok())
       {
@@ -64,9 +58,21 @@ int main( int argc, char** argv )
       ROS_WARN_ONCE("Please create a subscriber to the marker");
       sleep(1);
     }
+
+  // Set the marker action.  Options are ADD, DELETE, or DELETEALL.
+  marker.action = visualization_msgs::Marker::ADD;
+
+  while (ros::ok())
+  {
+    // Publish the marker
     marker_pub.publish(marker);
 
     r.sleep();
   }
   
+  // Set the drop-off pose of the marker.
+  // This is relative to the frame/time specified above
+  marker.pose.position.x = 8;
+  marker.pose.position.y = 8;
+  marker.pose.position.z = 0;
 }
