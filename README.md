@@ -37,19 +37,6 @@ $ sudo apt-get update
 $ sudo apt-get install ros-kinetic-navigation
 ```
 
-#### Install ROS Turtlebot if not installed
-
-```bash
-$ sudo apt-get install ros-kinetic-turtlebot
-```
-#### install ROS packages dependancies
-
-```bash
-$ sudo rosdep -i install gmapping
-$ sudo rosdep -i install turtlebot
-$ sudo rosdep -i install turtlebot_teleop
-$ sudo rosdep -i install turtlebot_rviz_launchers
-```
 ### install xterm if you dont have it
 
 ```bash
@@ -71,11 +58,39 @@ $ source ~/.bashrc
 
 ## How to use this repository
 
+first change to the workspace directory
+
+```bash
+$ cd ~/catkin_ws
+```
+
 #### Testing SLAM
+```bash
+$ ./src/ShellScripts/test_slam.sh
+```
 #### Testing Navigation
+```bash
+$ ./src/ShellScripts/test_navigation.sh
+```
 #### Saving SLAM Map
+```bash
+./src/ShellScripts/save_map.sh
+```
+#### Pick_objects
+```bash
+$ ./src/ShellScripts/pick_objects.sh
+```
 
+#### Add Markers
+```bash
+$ ./src/ShellScripts/add_marker.sh
+```
 
+#### Home Service
+
+```bash
+$ ./src/ShellScripts/home_service.sh
+```
 
 
 
