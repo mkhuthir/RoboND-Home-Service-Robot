@@ -3,9 +3,11 @@
 
 int main( int argc, char** argv )
 {
+  // Create Node
   ros::init(argc, argv, "add_markers");
   ros::NodeHandle n;
-  ros::Rate r(1);
+  
+  // Create Publisher
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
   // Create marker
@@ -61,18 +63,31 @@ int main( int argc, char** argv )
 
   // Set the marker action.  Options are ADD, DELETE, or DELETEALL.
   marker.action = visualization_msgs::Marker::ADD;
+  // Publish the marker
+  marker_pub.publish(marker);
+  ROS_INFO("Published marker at pick-up point");
+  // Sleep for 5 sec
+  ros::Duration(5.0).sleep();
 
-  while (ros::ok())
-  {
-    // Publish the marker
-    marker_pub.publish(marker);
+  // Set the marker action to DELETE
+  marker.action = visualization_msgs::Marker::DELETE;
+  // Publish the marker
+  marker_pub.publish(marker);
+  ROS_INFO("Removed marker from pick-up point");
+  // Sleep for 5 sec
+  ros::Duration(5.0).sleep();
 
-    r.sleep();
-  }
-  
   // Set the drop-off pose of the marker.
   // This is relative to the frame/time specified above
   marker.pose.position.x = 8;
   marker.pose.position.y = 8;
   marker.pose.position.z = 0;
+
+  // Set the marker action to ADD.
+  marker.action = visualization_msgs::Marker::ADD;
+  // Publish the marker
+  marker_pub.publish(marker);
+  ROS_INFO("Published marker at drop_off point");
+  // Sleep for 5 sec
+  ros::Duration(5.0).sleep();
 }
