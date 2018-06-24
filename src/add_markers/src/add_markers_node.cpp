@@ -11,22 +11,25 @@ int main( int argc, char** argv )
   // Create marker
   visualization_msgs::Marker marker;
 
-  // Set the frame ID and timestamp.  See the TF tutorials for information on these.
-  marker.header.frame_id = "map";
-  marker.header.stamp = ros::Time::now();
-
   // Set the namespace and id for this marker.  This serves to create a unique ID
   // Any marker sent with the same namespace and id will overwrite the old one
   marker.ns = "add_markers";
   marker.id = 0;
   
-  // Set the marker type.  Initially this is CUBE, and cycles between that and SPHERE, ARROW, and CYLINDER
+  // Set the marker type.  can be a CUBE, SPHERE, ARROW, or CYLINDER
   marker.type = visualization_msgs::Marker::CUBE;
-    
-  // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
-  marker.pose.position.x = 1;
+
+  // Set the frame ID and timestamp.  See the TF tutorials for information on these.
+  marker.header.frame_id = "map";
+  marker.header.stamp = ros::Time::now();
+
+  // Set the pose of the marker.
+  // This is relative to the frame/time specified above
+  marker.pose.position.x = 4;
   marker.pose.position.y = 0;
   marker.pose.position.z = 0;
+
+  // Set the orientation of the marker.
   marker.pose.orientation.x = 0.0;
   marker.pose.orientation.y = 0.0;
   marker.pose.orientation.z = 0.0;
@@ -48,7 +51,7 @@ int main( int argc, char** argv )
   while (ros::ok())
   {
 
-    // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
+    // Set the marker action.  Options are ADD, DELETE, or DELETEALL.
     marker.action = visualization_msgs::Marker::ADD;
 
     // Publish the marker
