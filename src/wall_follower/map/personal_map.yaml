@@ -1,4 +1,4 @@
-image: /home/mkhuthir/catkin_ws/src/personal_map.pgm
+image: $(rospack find wall_follower)/map/personal_map.pgm
 resolution: 0.050000
 origin: [-10.800000, -10.800000, 0.000000]
 negate: 0
