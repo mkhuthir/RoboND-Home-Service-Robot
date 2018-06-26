@@ -93,5 +93,9 @@ $ ./src/ShellScripts/home_service.sh
 ```
 
 
+## Video of the Test
+
+
+[![test video](http://img.youtube.com/vi/Z9pwkvCbkwU/0.jpg)](http://www.youtube.com/watch?v=Z9pwkvCbkwU)
 
 
